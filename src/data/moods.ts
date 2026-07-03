@@ -1,48 +1,57 @@
 import * as Icons from '../components/icons';
 
-const baseUrl = "https://wulalluzuoaoppcuczej.supabase.co/storage/v1/object/public";
+export interface Mood {
+  slug: string;
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  url: string;
+  defaultVolume: number; // volumen inicial del track (0-1)
+}
 
-export const moods = [
+// Fuente única de datos. Define los 6 sonidos ambientales disponibles.
+// Cada mood tiene un slug único, título, icono SVG, archivo de audio local
+// y un volumen por defecto balanceado respecto a los demás.
+export const moods: Mood[] = [
   {
     slug: "lluvia",
     title: "Lluvia",
     icon: Icons.Rainy,
-    url: `${baseUrl}/audio/rain.wav`,
-    video: `${baseUrl}/videos/rain.mp4`,
+    url: "/audio/lluvia.mp3",
+    defaultVolume: 0.8,
   },
   {
     slug: "fogata",
     title: "Fogata",
     icon: Icons.Fireplace,
-    url: `${baseUrl}/audio/fireplace.wav`,
-    video: `${baseUrl}/videos/fireplace.mp4`,
+    url: "/audio/fogata.mp3",
+    defaultVolume: 0.6,
   },
   {
-    slug: "tormenta",
-    title: "Tormenta",
+    slug: "trueno",
+    title: "Trueno",
     icon: Icons.Bolt,
-    url: `${baseUrl}/audio/deep-thunder.wav`,
-    video: `${baseUrl}/videos/storm.mp4`,
+    url: "/audio/trueno.wav",
+    defaultVolume: 0.6,
   },
   {
     slug: "viento",
     title: "Viento",
     icon: Icons.Wind,
-    url: `${baseUrl}/audio/winter-wind.wav`,
-    video: `${baseUrl}/videos/wind.mp4`,
+    url: "/audio/viento.wav",
+    defaultVolume: 0.8,
   },
   {
     slug: "oceano",
     title: "Oceano",
     icon: Icons.Wave,
-    url: `${baseUrl}/audio/ocean-waves.mp3`,
-    video: `${baseUrl}/videos/ocean.mp4`,
+    url: "/audio/oceano.wav",
+    defaultVolume: 0.9,
   },
   {
     slug: "rio",
     title: "Rio",
     icon: Icons.Water,
-    url: `${baseUrl}/audio/river-flow.mp3`,
-    video: `${baseUrl}/videos/river.mp4`,
+    url: "/audio/rio.wav",
+    defaultVolume: 0.9,
   },
 ];
