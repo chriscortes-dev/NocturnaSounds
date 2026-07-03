@@ -4,12 +4,14 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Moon } from "@/components/icons";
 
+// Splash screen inicial. Muestra el logo de NocturnaSounds y redirige al home
+// tras 3 segundos, simulando una pantalla de carga de app móvil.
 export default function WelcomeScreen() {
   const router = useRouter();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.replace("/home"); // Redirige después de 3s
+      router.replace("/home");
     }, 3000);
 
     return () => clearTimeout(timeout);
@@ -17,7 +19,6 @@ export default function WelcomeScreen() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-2xl mb-6">Escucha lo que sientes</h1>
       <div className="w-32 h-32">
         <Moon width="100%" height="100%" />
       </div>
