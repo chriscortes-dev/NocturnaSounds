@@ -1,42 +1,49 @@
-# NocturnaSounds 🎵🌙
+# NocturnaSounds 🌙🎵
 
-Una experiencia inmersiva de **música ambiental + videos relajantes**.  
-Proyecto personal en **Next.js 15**, React 19 y TailwindCSS 4 para explorar audio, video y hooks personalizados en el navegador.
-
----
+Reproductor de sonidos ambientales con mezcla en vivo. Inspirado en el reproductor de sonidos de ambiente de Apple.
 
 ## ✨ Funcionalidades
 
-- 🎶 **MiniPlayer persistente**: Reproduce audio mientras navegas entre escenas.  
-- 🌐 **Exploración de moods**: Cada mood tiene audio y video únicos.  
-- 📱 **Responsive**: Desktop y dispositivos móviles.  
-- 🔄 **Interactividad**: Selección de moods y reproducción/pausa dinámica.
-
----
+- **Grid de sonidos**: 6 sonidos ambientales (lluvia, fogata, trueno, océano, río, viento)
+- **Reproducción independiente**: cada track tiene su propio control de play/pausa y volumen
+- **Mezcla en vivo**: múltiples sonidos se reproducen simultáneamente y se mezclan en tiempo real
+- **MiniPlayer persistente**: control global con timer configurable por sonido
+- **Responsive**: desktop y dispositivos móviles
 
 ## 🛠 Tecnologías
 
-- **Next.js 15** (App Router)  
-- **React 19** + Hooks personalizados  
-- **TailwindCSS 4**  
-- **TypeScript 5**  
-- **Context API** para manejar el estado global del reproductor de audio  
-- **ESLint** para mantener el código limpio
+| Capa | Tecnología |
+|------|-----------|
+| Frontend | Next.js 15 (App Router), React 19, TypeScript 5 |
+| Estilos | TailwindCSS 4, Geist Sans/Mono |
+| Paquetes | pnpm |
+| Estado | Context API (AudioPlayerContext + UIContext) |
+| Audio | Web Audio API (useWebAudioPlayer) |
+| Backend | Ninguno — datos estáticos, audios locales |
 
----
+## 📂 Estructura
 
-## 📂 Estructura del proyecto
+```
+src/
+├── app/          → Páginas y layouts
+├── components/   → SoundCarousel, MiniPlayer, icons
+├── context/      → AudioPlayerContext
+├── data/         → moods.ts (fuente única de datos)
+├── hooks/        → useWebAudioPlayer (Web Audio API)
+├── test/         → Tests con Vitest
+public/audio/     → Archivos de audio locales
+```
 
-app/ → Páginas y layouts de Next.js
+## 🚀 Comandos
 
-components/ → MiniPlayer, ButtonCarousel, etc.
+```bash
+pnpm install      # Instalar dependencias
+pnpm run dev      # Desarrollo
+pnpm run build    # Build producción
+pnpm run lint     # ESLint
+pnpm run test     # Tests
+```
 
-context/ → Context API del audio
+## 🎯 Concepto
 
-data/ → Datos de los moods (audio, video, íconos)
-
-hooks/ → Hooks personalizados
-
----
-
-Proyecto personal: un Simple Lovable Concept (SLC) para experimentar con audio y video en la web 🌙
+Simple Lovable Concept (SLC): funcional, estético, mínimo viable. Sin backend, sin autenticación, sin servicios externos.
